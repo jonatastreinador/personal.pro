@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PERSONAL.PRO — Pare de ser amador</title>
+<meta name="description" content="Personal, pare de ser amador. Venha ser um PERSONAL.PRO. Ferramentas e materiais para personal trainers profissionais.">
+<meta name="theme-color" content="#08080a">
+<meta property="og:title" content="PERSONAL.PRO — Pare de ser amador">
+<meta property="og:description" content="Venha ser um PERSONAL.PRO. Ferramentas e materiais para personal trainers profissionais.">
+<meta property="og:image" content="https://jonatastreinador.github.io/personal.pro/assets/icon.png">
+<link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060607;--line:#26272d;--muted:#9a9ea7;--silver:linear-gradient(180deg,#fff 0%,#d4d7dc 48%,#8c9198 100%)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{background:var(--bg);color:#ecedf0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;display:flex;justify-content:center}
+a{color:inherit;text-decoration:none}
+
+/* animated background */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg::before{content:"";position:absolute;inset:-20%;background:radial-gradient(ellipse 60% 40% at 50% 8%,rgba(255,255,255,.10),transparent 70%),radial-gradient(ellipse 50% 40% at 50% 110%,rgba(255,255,255,.06),transparent 70%)}
+.streak{position:absolute;width:2px;height:160vh;top:-30vh;background:linear-gradient(180deg,transparent,rgba(255,255,255,.22),transparent);transform:rotate(28deg);filter:blur(.4px);animation:drift 9s linear infinite;opacity:.0}
+.streak:nth-child(1){left:12%;animation-delay:0s}
+.streak:nth-child(2){left:38%;animation-delay:3s;width:1px}
+.streak:nth-child(3){left:66%;animation-delay:6s}
+.streak:nth-child(4){left:88%;animation-delay:1.5s;width:1px}
+@keyframes drift{0%{transform:translateX(-30vw) rotate(28deg);opacity:0}15%{opacity:.9}85%{opacity:.9}100%{transform:translateX(40vw) rotate(28deg);opacity:0}}
+#dots{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+
+.page{position:relative;z-index:1;width:100%;max-width:520px;padding:46px 22px 40px;display:flex;flex-direction:column;align-items:center;text-align:center}
+
+/* logo */
+.logo-wrap{position:relative;width:250px;margin-bottom:6px}
+.logo-wrap img{width:100%;height:auto;position:relative;filter:drop-shadow(0 8px 30px rgba(255,255,255,.12))}
+.logo-wrap .glow{position:absolute;inset:-20% -10%;background:radial-gradient(ellipse at center,rgba(255,255,255,.18),transparent 65%);animation:breathe 4s ease-in-out infinite}
+.logo-wrap .shine{position:absolute;inset:0;-webkit-mask:url(assets/logo.webp) center/contain no-repeat;mask:url(assets/logo.webp) center/contain no-repeat;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.95) 50%,transparent 65%);background-size:250% 100%;animation:sweep 4.5s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.5;transform:scale(.95)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes sweep{0%,55%{background-position:150% 0}100%{background-position:-60% 0}}
+
+/* hook */
+.kicker{font-size:.74rem;font-weight:800;letter-spacing:.32em;color:var(--muted);margin:22px 0 14px}
+h1{font-weight:900;letter-spacing:-.03em;line-height:1.02;font-size:clamp(2.35rem,10.5vw,3.3rem)}
+h1 .l1{display:block;background:var(--silver);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .strike{position:relative;display:inline-block;color:#fff}
+h1 .strike::after{content:"";position:absolute;left:-4%;right:-4%;top:54%;height:.12em;background:#fff;border-radius:2px;transform:scaleX(0);transform-origin:left;animation:strike .55s cubic-bezier(.7,0,.3,1) 1.5s forwards;box-shadow:0 0 16px rgba(255,255,255,.6)}
+@keyframes strike{to{transform:scaleX(1)}}
+.sub{margin-top:18px;font-size:1.12rem;font-weight:600;color:#c9ccd1}
+.sub b{display:inline-block;margin-top:8px;font-weight:900;font-size:1.5rem;letter-spacing:-.01em;color:#08080a;background:#fff;padding:4px 14px;border-radius:10px;box-shadow:0 10px 40px -8px rgba(255,255,255,.45)}
+
+/* links */
+.links{width:100%;margin-top:38px;display:flex;flex-direction:column;gap:16px}
+.label{font-size:.72rem;font-weight:800;letter-spacing:.28em;color:#6f737c;display:flex;align-items:center;gap:12px}
+.label::before,.label::after{content:"";flex:1;height:1px;background:var(--line)}
+.card{position:relative;display:grid;grid-template-columns:118px 1fr;gap:18px;align-items:center;padding:18px 18px 18px 14px;border-radius:24px;background:linear-gradient(160deg,#16161a,#0d0d10);isolation:isolate;transition:transform .25s cubic-bezier(.2,.8,.2,1);text-align:left}
+.card::before{content:"";position:absolute;inset:0;padding:1.5px;border-radius:24px;background:conic-gradient(from var(--a),#3a3c42,#ffffff,#3a3c42 30%,#3a3c42 60%,#c9ccd1,#3a3c42);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 5s linear infinite;z-index:-1}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.card::after{content:"";position:absolute;inset:0;border-radius:24px;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.08) 50%,transparent 60%);background-size:250% 100%;animation:sweep 3.8s ease-in-out infinite;pointer-events:none}
+.card:hover{transform:translateY(-3px) scale(1.01)}
+.card:active{transform:scale(.98)}
+.card .thumb{position:relative;aspect-ratio:1;border-radius:16px;background:radial-gradient(circle at 50% 40%,#2a2b30,#0b0b0d 75%);display:grid;place-items:center;overflow:hidden}
+.card .thumb img{width:74%;height:auto;filter:drop-shadow(0 10px 14px rgba(0,0,0,.8));animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(2px) rotate(-1deg)}50%{transform:translateY(-4px) rotate(1deg)}}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;font-weight:900;letter-spacing:.16em;color:#08080a;background:#fff;border-radius:999px;padding:4px 9px}
+.badge i{width:6px;height:6px;border-radius:50%;background:#08080a;animation:blink 1.2s ease-in-out infinite}
+@keyframes blink{50%{opacity:.2}}
+.card h2{font-size:1.32rem;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin:9px 0 5px}
+.card p{font-size:.86rem;color:var(--muted);line-height:1.4}
+.card .go{display:inline-flex;align-items:center;gap:8px;margin-top:11px;font-size:.84rem;font-weight:800;color:#fff}
+.card .go svg{width:16px;height:16px;transition:transform .2s}
+.card:hover .go svg{transform:translateX(4px)}
+
+footer{margin-top:44px;font-size:.76rem;color:#5d6068;letter-spacing:.04em}
+footer b{color:#8a8e96;font-weight:800}
+
+/* entrance */
+.in{opacity:0;transform:translateY(18px);animation:up .7s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}.in{opacity:1;transform:none}h1 .strike::after{transform:scaleX(1)}}
+@media (max-width:380px){.card{grid-template-columns:96px 1fr;gap:14px}.card h2{font-size:1.15rem}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <span class="streak"></span><span class="streak"></span><span class="streak"></span><span class="streak"></span>
+  <canvas id="dots"></canvas>
+</div>
+
+<main class="page">
+  <div class="logo-wrap in" style="animation-delay:.05s">
+    <div class="glow"></div>
+    <img src="assets/logo.webp" alt="PERSONAL.PRO — Gestão Fitness Profissional" width="250" height="130">
+    <div class="shine"></div>
+  </div>
+
+  <div class="kicker in" style="animation-delay:.25s">PARA PERSONAL TRAINERS</div>
+  <h1 class="in" style="animation-delay:.4s">
+    <span class="l1">Personal,</span>
+    <span class="l1">pare de ser</span>
+    <span class="strike">amador.</span>
+  </h1>
+  <p class="sub in" style="animation-delay:.9s">Venha ser um<br><b>PERSONAL.PRO</b></p>
+
+  <section class="links" id="links">
+    <div class="label in" style="animation-delay:1.2s">PRODUTOS</div>
+  </section>
+
+  <footer class="in" style="animation-delay:1.8s"><b>PERSONAL.PRO</b> · Gestão Fitness Profissional</footer>
+</main>
+
+<script>
+/* ============ PRODUTOS — para adicionar um novo, copie um bloco ============ */
+const PRODUTOS = [
+  {
+    nome: 'Conteúdo que Atrai',
+    selo: 'NOVO',
+    descricao: 'Edição Premium · 300 ganchos, 60 roteiros, 100 prompts e calendário de 30 dias',
+    chamada: 'Conhecer o livro',
+    imagem: 'assets/livro-3d.webp',
+    link: 'https://jonatastreinador.github.io/conteudo-que-atrai/'
+  }
+];
+const UTM = 'utm_source=instagram&utm_medium=bio&utm_campaign=personalpro';
+/* ========================================================================== */
+
+const box = document.getElementById('links');
+PRODUTOS.forEach((p, i) => {
+  const a = document.createElement('a');
+  a.className = 'card in';
+  a.style.animationDelay = (1.35 + i * .15) + 's';
+  a.href = p.link + (p.link.includes('?') ? '&' : '?') + UTM;
+  a.innerHTML = `
+    <div class="thumb"><img src="${p.imagem}" alt="${p.nome}" width="80" height="124"></div>
+    <div>
+      ${p.selo ? `<span class="badge"><i></i>${p.selo}</span>` : ''}
+      <h2>${p.nome}</h2>
+      <p>${p.descricao}</p>
+      <span class="go">${p.chamada}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>`;
+  box.appendChild(a);
+});
+
+/* floating silver particles */
+(() => {
+  const c = document.getElementById('dots'); if (!c.getContext) return;
+  const x = c.getContext('2d'); let w, h, P = [];
+  const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){ const d = Math.min(devicePixelRatio || 1, 2); w = c.width = innerWidth * d; h = c.height = innerHeight * d;
+    P = Array.from({length: Math.round(innerWidth * innerHeight / 14000)}, () => ({x: Math.random()*w, y: Math.random()*h, r: (Math.random()*1.4+.4)*d, v: (Math.random()*.25+.08)*d, o: Math.random()*.6+.2})); }
+  function tick(){ x.clearRect(0,0,w,h); for (const p of P){ p.y -= p.v; if (p.y < -5){ p.y = h + 5; p.x = Math.random()*w; } x.globalAlpha = p.o; x.fillStyle = '#e6e8ec'; x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fill(); } if(!rm) requestAnimationFrame(tick); }
+  size(); addEventListener('resize', size); tick();
+})();
+</script>
+</body>
+</html>
