@@ -123,6 +123,15 @@ const PRODUTOS = [
     chamada: 'Conhecer o livro',
     imagem: 'assets/livro-3d.webp',
     link: 'https://jonatastreinador.github.io/conteudo-que-atrai/'
+  },
+  {
+    nome: 'App PERSONAL.PRO',
+    selo: '14 DIAS GRÁTIS',
+    descricao: 'Treino, avaliação, dieta e financeiro num só app, com PDF com a sua marca',
+    chamada: 'Testar grátis',
+    imagem: 'assets/app.webp',
+    largura: '46%',
+    link: 'https://personalpro-app.netlify.app/'
   }
 ];
 const UTM = 'utm_source=instagram&utm_medium=bio&utm_campaign=personalpro';
@@ -135,7 +144,7 @@ PRODUTOS.forEach((p, i) => {
   a.style.animationDelay = (1.35 + i * .15) + 's';
   a.href = p.link + (p.link.includes('?') ? '&' : '?') + UTM;
   a.innerHTML = `
-    <div class="thumb"><img src="${p.imagem}" alt="${p.nome}" width="80" height="124"></div>
+    <div class="thumb"><img src="${p.imagem}" alt="${p.nome}" width="80" height="124"${p.largura ? ` style="width:${p.largura}"` : ''}></div>
     <div>
       ${p.selo ? `<span class="badge"><i></i>${p.selo}</span>` : ''}
       <h2>${p.nome}</h2>
