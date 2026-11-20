@@ -165,5 +165,29 @@ PRODUTOS.forEach((p, i) => {
   size(); addEventListener('resize', size); tick();
 })();
 </script>
+<!-- PERSONAL.PRO · contador de visitas (sem cookies de terceiros; não guarda IP) -->
+<script>
+(function(){
+  var SITE='bio', U='https://cthrowecobjctoepkjhe.supabase.co/rest/v1/rpc/track_event', K='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0aHJvd2Vjb2JqY3RvZXBramhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ1MTAxMzcsImV4cCI6MjExMDA4NjEzN30.u3Rs6YBLvfNVaJva4X8JxOzYj6OrHMdUFSjEPGGiSw4';
+  function rid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,10)}
+  function id(k,s){try{var v=s.getItem(k);if(!v){v=rid();s.setItem(k,v)}return v}catch(e){return rid()}}
+  var vis=id('pp_vid',localStorage), ses=id('pp_sid',sessionStorage), q=new URLSearchParams(location.search), ref='';
+  try{ref=document.referrer?new URL(document.referrer).hostname:''}catch(e){}
+  if(ref===location.hostname)ref='';
+  var dev=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)?'celular':'computador';
+  function send(ev,label){try{fetch(U,{method:'POST',keepalive:true,headers:{apikey:K,Authorization:'Bearer '+K,'Content-Type':'application/json'},
+    body:JSON.stringify({p_site:SITE,p_event:ev,p_visitor:vis,p_session:ses,p_label:label||null,p_path:location.pathname,
+      p_source:q.get('utm_source'),p_medium:q.get('utm_medium'),p_campaign:q.get('utm_campaign'),p_referrer:ref||null,p_device:dev})})}catch(e){}}
+  send('view');
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a,button'); if(!a)return;
+    var l=a.getAttribute('data-track');
+    if(!l&&a.hasAttribute('data-checkout'))l=SITE==='app'?'assinar '+(a.getAttribute('data-checkout')||''):(a.closest('.sticky')?'comprar (barra fixa)':'comprar');
+    if(!l&&a.hasAttribute('data-trial'))l='testar grátis';
+    if(!l&&a.classList.contains('card')){var h=a.querySelector('h2,h3');l=h?h.textContent.trim():'card'}
+    if(l)send('click',l.trim());
+  },true);
+})();
+</script>
 </body>
 </html>
